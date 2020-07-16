@@ -34,7 +34,7 @@ simulate <- function(complete_data = data,
                     it_nr = it,
                     final_it = n.iter) %>% cbind(p = mis, .)
       }) %>% cbind(chain_means, chain_vars)
-    })
+    }) 
   # save seed in global environment
   seed <<- .Random.seed
   

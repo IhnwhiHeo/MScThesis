@@ -31,7 +31,7 @@ evaluate.sim <-
     without_conv <-
       map_df(sims, ~ {
         as.data.frame(.)
-      }) %>% aggregate(. ~ t + p, data = ., function_to_apply)
+      }) %>% aggregate(. ~ it + p, data = ., function_to_apply)
     
     if (mean_or_SE == "se") {return(without_conv)} else {
       
@@ -66,13 +66,13 @@ evaluate.sim <-
               mis %>% .[, grep(vrb, names(.))] %>% convergence() %>% .[,-1] %>% set_names(paste0(names(.), ".", vrb))
             })
           }) %>% cbind(rep[, 1:2], .)
-      }) %>% aggregate(. ~ t + p,
+      }) %>% aggregate(. ~ it + p,
                        data = .,
                        function_to_apply,
                        na.action = na.pass) %>% dplyr::na_if(., "NaN")
     
     
     #output
-    return(left_join(without_conv, conv, by = c("t", "p")))
+    return(left_join(without_conv, conv, by = c("it", "p")))
     }
   }

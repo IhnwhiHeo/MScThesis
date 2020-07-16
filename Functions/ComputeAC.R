@@ -24,18 +24,18 @@ ac_adapted <- function(x, ac_function = "ac") {
   if (is.numeric(x)) {
     x <- as.data.frame(x)
   }
-  t <- dim(x)[1] #nr of iterations
+  it <- dim(x)[1] #nr of iterations
   M <- dim(x)[2] #nr of imputations
   
   # compute ac for each iteration (by definition only possible for t > 2)
-  if (t < min_it) {
+  if (it < min_it) {
     ac <-
-      matrix(NA, t, M + 2) %>% as.data.frame %>% set_names(paste0(ac_function, ".", c("mean", "max", names(x))))
+      matrix(NA, it, M + 2) %>% as.data.frame %>% set_names(paste0(ac_function, ".", c("mean", "max", names(x))))
   } else {
-    ac <- map_dfr(min_it:t, function(it) {
+    ac <- map_dfr(min_it:it, function(i) {
       # compute ac
-      x[1:it, ] %>% function_to_apply() %>% t() %>% data.frame(mean(.), max(.), .) %>% set_names(paste0(ac_function, ".", c("mean", "max", 1:M)))
-    }) %>% rbind(matrix(NA, min_it-1, M+2, dimnames = list(NULL, names(.))), .) %>% cbind(iteration = 1:t, .)
+      x[1:i, ] %>% function_to_apply() %>% t() %>% data.frame(mean(.), max(.), .) %>% set_names(paste0(ac_function, ".", c("mean", "max", 1:M)))
+    }) %>% rbind(matrix(NA, min_it-1, M+2, dimnames = list(NULL, names(.))), .) %>% cbind(iteration = 1:it, .)
   }
   
   # output

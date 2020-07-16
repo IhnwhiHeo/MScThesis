@@ -52,11 +52,11 @@ test.impute <- function(amp_data,
   means <-
     imputed %>% map_df(., ~ {
       apply(., 2, mean)
-    }) %>% apply(., 1, mean) #bias in est mean per variable
+    }) %>% apply(., 2, mean) #bias in est mean per variable
   sds <-
     imputed %>% map_df(., ~ {
       apply(., 2, sd)
-    }) %>% apply(., 1, mean) #bias in est var per variable
+    }) %>% apply(., 2, mean) #bias in est var per variable
   names(means) <- names(sds) <- names(imputed[[1]])
   
   # compute multivariate diagnostics
@@ -102,7 +102,7 @@ test.impute <- function(amp_data,
   # collect output
   return(
     data.frame(
-      t = it_nr,
+      it = it_nr,
       bias.mean = t(means - true.mean),
       bias.sd = t(sds - true.sd),
       bias.est = t(est - true.effect),
