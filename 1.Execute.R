@@ -29,8 +29,8 @@ source("Functions/EvaluateResults.R")
 
 # simulation parameters
 populationsize <- 1000 #nr of observations in simulated dataset
-n.iter <- 10 #nr of iterations (varying 1:n.iter)
-n.sim <- 2 #nr of simulations per iteration value
+n.iter <- 20 #nr of iterations (varying 1:n.iter)
+n.sim <- 1000 #nr of simulations per iteration value
 p.miss <- c(.05, .25, .5, .75, .95) #proportion of incomplete cases
 true.effect <- 2 #regression coefficient to be estimated
 

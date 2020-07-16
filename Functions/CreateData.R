@@ -14,7 +14,7 @@ data.simulation <- function(n = populationsize, true_effect = 2) {
   simdata <-
     as.data.frame(mvtnorm::rmvnorm(n = populationsize, mean = means, sigma = sigma)) #create data
   colnames(simdata) <- c("X1", "X2", "X3") #set predictors names
-  simdata$X3 <- ifelse(simdata$X3 > mean(simdata$X3), 1, 0) 
+  simdata$X1 <- ifelse(simdata$X1 > mean(simdata$X1), 1, 0) 
 
   # compute  outcome variable from predictors
   Y <-
