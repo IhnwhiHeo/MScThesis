@@ -33,7 +33,7 @@ The following folders are used to store the necessary functions, figures, layout
 
 **Permission and access**
 
-The entire research archive is available through [github.com/hanneoberman/MissingThePoint](https://github.com/hanneoberman/MissingThePoint). The Github repository is public, and therefore completely 'open access'. The data will be stored for a minimal duration of ten years.
+The entire research archive is available through [github.com/hanneoberman/MScThesis](https://github.com/hanneoberman/MScThesis). The Github repository is public, and therefore completely 'open access'. The data will be stored for a minimal duration of ten years.
 
 -Hanne Oberman, 11-05-2020
 
