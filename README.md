@@ -1,4 +1,4 @@
-This repository serves as research archive for the Master's thesis 'Missing the Point: Non-Convergence in Iterative Imputation Algorithms' by Hanne Oberman. 
+This repository serves as research archive for the Master's thesis 'Missing the Point: Non-Convergence in Iterative Imputation Algorithms' by Hanne Oberman. If you are looking for the work presented at the ICML 2020 workshop ATREMISS, please see the folder `ICML` inside the folder `Writeup`.
 
 
 **Abstract**
